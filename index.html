@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="stylee.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="horizontal-scroll">
+            <button class="btn-scroll" id="btn-scrool-left" onclick="scrollHorizontally(1)">
+                <i class='bx bx-chevron-left' ></i>
+            </button>
+            <button class="btn-scroll" id="btn-scrool-right" onclick="scrollHorizontally(-1)">
+                <i class='bx bx-chevron-right'></i>
+            </button>
+
+            <div class="storys-container">
+                <div class="storys-circle"><img src="image/Slide1.jpg"></div>
+                <div class="storys-circle"><img src="image/Slide1.jpg"></div>
+                <div class="storys-circle"><img src="image/Slide1.jpg"></div>
+                <div class="storys-circle"><img src="image/Slide1.jpg"></div>
+                <div class="storys-circle"><img src="image/Slide1.jpg"></div>
+                <div class="storys-circle"><img src="image/Slide1.jpg"></div>
+                <div class="storys-circle"><img src="image/Slide1.jpg"></div>
+                <div class="storys-circle"><img src="image/Slide1.jpg"></div>
+                <div class="storys-circle"><img src="image/Slide1.jpg"></div>
+                <div class="storys-circle"><img src="image/Slide1.jpg"></div>
+                <div class="storys-circle"><img src="image/Slide1.jpg"></div>
+                <div class="storys-circle"><img src="image/Slide1.jpg"></div>
+                <div class="storys-circle"><img src="image/Slide1.jpg"></div>
+                <div class="storys-circle"><img src="image/Slide1.jpg"></div>
+                <div class="storys-circle"><img src="image/Slide1.jpg"></div>
+                <div class="storys-circle"><img src="image/Slide1.jpg"></div>
+                <div class="storys-circle"><img src="image/Slide1.jpg"></div>
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+<script type="text/javascript">
+    let correntScrollPosition =0
+    let scrollAmout = 320
+
+    const sCont = document.querySelector(".storys-container")
+    const hScrool = document.querySelector(".horizontal-scroll")
+    const btnScrollLeft = document.querySelector("#btn-scrool-left")
+    const btnScrollRight = document.querySelector("#btn-scrool-right")
+
+    btnScrollLeft.style.opacity = "0"
+
+    let maxcroll = -sCont.offsetWidth + hScrool.offsetWidth
+
+    function scrollHorizontally(val){
+        correntScrollPosition += (val * scrollAmout)
+
+        if(correntScrollPosition >= 0){
+            correntScrollPosition = 0
+            btnScrollLeft.style.opacity = "0"
+        }else{
+            btnScrollLeft.style.opacity = "1"
+        }
+
+        if(correntScrollPosition <= maxcroll){
+            correntScrollPosition = maxcroll
+            btnScrollRight.style.opacity = "0"
+        }else{
+            btnScrollRight.style.opacity = "1"
+        }
+
+
+        sCont.style.left = correntScrollPosition + "px"
+    }
+</script>
+</body>
+</html>
